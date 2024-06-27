@@ -6,7 +6,7 @@ import { useState } from "react";
 const OrderState = (props) => {
     const url = "https://odeasebackend.vercel.app";
     
-    const [users, setUsers] = useState([]);
+    const [users, setCurrUser] = useState([]);
     
     //get the curr user
     const getCurrUser = async () => {
@@ -19,7 +19,7 @@ const OrderState = (props) => {
         }).then(function(response){
             console.log(response.data)
             if(response.status === 200){
-              setCurrUsre(response.data)
+              setCurrUser(response.data)
             }
           })
     }
@@ -60,9 +60,9 @@ const OrderState = (props) => {
     // }
 
     return(
-        <chatContext.Provider value={{users, getCurrUser}}>
+        <ordercontext.Provider value={{users, getCurrUser}}>
             {props.children}
-        </chatContext.Provider>
+        </ordercontext.Provider>
     )
 }
 
