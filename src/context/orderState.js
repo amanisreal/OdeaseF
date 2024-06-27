@@ -9,7 +9,7 @@ const OrderState = (props) => {
     const [users, setCurrUser] = useState([]);
     
     //get the curr user
-    const getCurrUser = async () => {
+    const gettCurrUser = async () => {
         axios({
             url:`${url}/user`,
             method: "GET",
@@ -21,6 +21,10 @@ const OrderState = (props) => {
             if(response.status === 200){
               setCurrUser(response.data)
             }
+          }).catch(function(error){
+            console.log(error);
+            alert('Invalid Table number')
+            return 'err'
           })
     }
 
@@ -60,7 +64,7 @@ const OrderState = (props) => {
     // }
 
     return(
-        <ordercontext.Provider value={{users, getCurrUser}}>
+        <ordercontext.Provider value={{users, gettCurrUser}}>
             {props.children}
         </ordercontext.Provider>
     )
