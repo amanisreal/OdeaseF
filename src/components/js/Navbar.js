@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import "../css/navbar.css"
+import ordercontext from '../../context/orderContext'
 
 function Navbar() {
+  
+  // const context = useContext(chatContext)
+  // const {currUser, getCurrUser} = context
+  const context = useContext(ordercontext)
+  const {users, gettCurrUser} = context;
+
+  useEffect(() => {
+    gettCurrUser();
+  }, [])
+
   return (
     <div className='navbarContainer'>
         <div  className='navBarLeft'>
@@ -16,7 +27,7 @@ function Navbar() {
             <input className='searchBarOfNavBar' type="text" placeholder='Search'/>
             <p>Order</p>
             <p className='chatText'>Chat</p>
-            <p className='adminText'>User</p>
+            <p className='adminText'>{users? users: 'User'}</p>
         </div>
     </div>
   )

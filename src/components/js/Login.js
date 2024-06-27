@@ -24,14 +24,14 @@ function Login() {
             tableNumber: password
         }).then(function(response){
             console.log(response);
-            if(response.status === 200){
-                  localStorage.setItem('token', response.data.token);
+            if(response.status === 201){
+                  localStorage.setItem('token', response.data.authToken);
                   navigate('/home')
             }
           })
           .catch(function(error){
             console.log(error);
-            alert('UserName and password is incorrect')
+            alert('Invalid Table number')
           })
         // setUsername('');
         // setPassword('');

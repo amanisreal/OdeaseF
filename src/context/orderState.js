@@ -11,10 +11,10 @@ const OrderState = (props) => {
     //get the curr user
     const getCurrUser = async () => {
         axios({
-            url:`${url}/user/me`,
+            url:`${url}/user`,
             method: "GET",
             headers:{
-                //"Authorization": 'Bearer ' + localStorage.getItem('token')
+                "Authorization": 'Bearer ' + localStorage.getItem('token')
             }
         }).then(function(response){
             console.log(response.data)
