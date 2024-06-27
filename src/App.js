@@ -5,6 +5,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Login from './components/js/Login';
 import AdminLogin from './components/js/AdminLogin';
 import Chat from './components/js/Chat';
+import OrderState from "./context/orderSatate"
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-    <RouterProvider router={router}/>
+    <OrderState>
+      <RouterProvider router={router}/>
+    </OrderState>
   </>
   );
 }
