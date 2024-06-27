@@ -19,11 +19,20 @@ function Login() {
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log('Logging in with:', { username, password });
-        const responseLogin = axios.post(`https://odeasebackend.vercel.app/login`,{
+        axios.post(`https://odeasebackend.vercel.app/login`,{
             userName: username,
             tableNumber: password
-        })
-        console.log(responseLogin);
+        }).then(function(response){
+            console.log(response);
+            if(response.status === 200){
+                  localStorage.setItem('token', response.data.token);
+                  navigate('/')
+            }
+          })
+          .catch(function(error){
+            console.log(error);
+            alert('UserName and password is incorrect')
+          })
         // setUsername('');
         // setPassword('');
 
