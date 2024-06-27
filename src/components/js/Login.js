@@ -19,9 +19,14 @@ function Login() {
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log('Logging in with:', { username, password });
-        const responseLogin = axios.post()
+        const responseLogin = axios.post(`https://odeasebackend.vercel.app/login`,{
+            userName: username,
+            tableNumber: password
+        })
+        console.log(responseLogin);
         // setUsername('');
         // setPassword('');
+
         navigate('/home')
 
     };
