@@ -1,0 +1,23 @@
+.itemCardContainer{
+    text-align: center;
+    height: 20vh;
+    width: 250px;
+    padding: 10px;
+}
+
+.imgConatiner{
+    height: 10vh;
+}
+
+#foodImage{
+    height: 15vh;
+}
+
+.contentContainer{
+    margin-top: 50px;
+}
+
+.itemCardContainer:hover{
+    cursor: pointer;
+}
+

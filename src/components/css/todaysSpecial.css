@@ -1,0 +1,27 @@
+#todaysSpecialContainer{
+    margin-top: 40px;
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+.todaysSpecialText{
+    margin-top: -10px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+   
+}
+.grid-item {
+    background-color: rgb(241, 245, 245);
+    margin-left: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+    width: 17rem;
+}
+
+
+.todaysSpecialCardContainer{
+    margin-left: 20px;
+}

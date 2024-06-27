@@ -1,0 +1,42 @@
+.navbarContainer{
+    display: flex;
+    background-color: rgb(230, 233, 236);   
+}
+
+.navBarLeft{
+    flex: 0.25;
+}
+
+.navBarMiddle{
+    flex: 0.35;
+}
+
+.navBarRight{
+    flex: 0.35;
+    display: flex;
+    margin-top: 6px;
+}
+
+.searchBarOfNavBar{
+    border: none;
+    height: 40px;
+    width: 300px;
+    margin-top: 2px;
+    border-radius: 3rem;
+    margin-right: 20px;
+    padding-left: 10px;
+    padding-top: 2px;
+}
+
+.adminText{
+    margin-left: 20px;
+}
+
+.adminText:hover, .chatText:hover{
+    cursor: pointer;
+    color: #766f6f;
+}
+
+.chatText{
+    margin-left: 20px;
+}
