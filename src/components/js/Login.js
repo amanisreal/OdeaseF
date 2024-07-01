@@ -25,6 +25,7 @@ function Login() {
         }).then(function(response){
             console.log(response);
             if(response.status === 201){
+                    console.log(response.data)
                   localStorage.setItem('token', response.data.authToken);
                   navigate('/home')
             }

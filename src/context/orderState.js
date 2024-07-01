@@ -14,7 +14,7 @@ const OrderState = (props) => {
             url:`${url}/user`,
             method: "GET",
             headers:{
-                "Authorization": 'Bearer ' + localStorage.getItem('token')
+                "Authorization":  localStorage.getItem('token')
             }
         }).then(function(response){
             console.log(response.data)
@@ -23,6 +23,7 @@ const OrderState = (props) => {
             }
           }).catch(function(error){
             console.log(error);
+            console.log(localStorage.getItem('token'))
             alert('Invalid Table number')
             return 'err'
           })

@@ -11,6 +11,7 @@ function Navbar() {
 
   useEffect(() => {
     gettCurrUser();
+    console.log(users)
   }, [])
 
   return (
@@ -27,7 +28,7 @@ function Navbar() {
             <input className='searchBarOfNavBar' type="text" placeholder='Search'/>
             <p>Order</p>
             <p className='chatText'>Chat</p>
-            <p className='adminText'>{users? users: 'User'}</p>
+            <p className='adminText'>{users? users.userName: 'User'}</p>
         </div>
     </div>
   )
