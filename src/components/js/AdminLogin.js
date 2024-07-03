@@ -1,7 +1,10 @@
 import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 import '../css/adminlogin.css'
+import axios from 'axios';
 
 function AdminLogin() {
+  const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
   
@@ -13,11 +16,24 @@ function AdminLogin() {
       setPassword(event.target.value);
     };
   
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
       event.preventDefault();
-      console.log('Logging in with:', { username, password });
-      setUsername('');
-      setPassword('');
+      console.log('Logging in with:', username, password);
+      await axios.post(`https://odeasebackend.vercel.app/adminLogin`,{
+        email: username,
+        password: password
+      }).then(function(response){
+        console.log(response);
+        if(response.status === 200){
+                console.log(response.data)
+              //localStorage.setItem('token', response.data.authToken);
+              navigate('/adminHome')
+        }
+      })
+      .catch(function(error){
+        console.log(error);
+        alert('Invalid Table number')
+      })
       // Here you can add logic to authenticate the user
     };
 

@@ -15,11 +15,11 @@ function Login() {
     const handlePasswordChange = (event) => {
         setPassword(event.target.value);
     };
-
-    const handleSubmit = (event) => {
+//https://odeasebackend.vercel.app/login
+    const handleSubmit = async (event) => {
         event.preventDefault();
         console.log('Logging in with:', { username, password });
-        axios.post(`https://odeasebackend.vercel.app/login`,{
+        await axios.post(`http://localhost:3001/login`,{
             userName: username,
             tableNumber: password
         }).then(function(response){

@@ -6,6 +6,8 @@ import Login from './components/js/Login';
 import AdminLogin from './components/js/AdminLogin';
 import Chat from './components/js/Chat';
 import OrderState from "./context/orderState"
+import AdminHome from './components/js/AdminHome';
+import AddFoodItems from './components/js/AddFoodItems';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
   {
     path:'/chat',
     element: <Chat/>
+  },
+  {
+    path: '/adminHome',
+    element: <AdminHome/>
+  },
+  {
+    path: '/addItem',
+    element: <AddFoodItems/>
   }
 ])
 
