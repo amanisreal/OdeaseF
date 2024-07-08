@@ -16,10 +16,14 @@ function Login() {
         setPassword(event.target.value);
     };
 //https://odeasebackend.vercel.app/login
+
+//ad kjsdvkjsbviu knsavuibaewv,bsv
+//dkhjvsvchjas vyuegfug
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         console.log('Logging in with:', { username, password });
-        await axios.post(`http://localhost:3001/login`,{
+        await axios.post(`https://odeasebackend.vercel.app/login`,{
             userName: username,
             tableNumber: password
         }).then(function(response){
@@ -72,7 +76,7 @@ function Login() {
 
        <div className='rightSide'>
             <h2>HELLO!</h2>
-            <h3>Welcome to OrderEase</h3>
+            <h3>Welcome to OrderEase!</h3>
        </div>
        </div>
 
