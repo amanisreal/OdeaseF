@@ -1,0 +1,12 @@
+.homeContainer{
+    position: absolute;
+}
+
+.navBarSection{
+    position: fixed;
+    width: 100%;
+}
+
+.todaysSpecialContainer{
+    margin-top: 80px;
+}

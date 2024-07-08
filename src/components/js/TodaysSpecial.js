@@ -16,12 +16,12 @@ function TodaysSpecial() {
         <ItemCard image={imageURL} text={"New Food"}/></div>
           <div class="grid-item">
         <ItemCard image={imageURL} text={"New Food"}/></div>
-          <div class="grid-item">
+          {/* <div class="grid-item">
         <ItemCard image={imageURL} text={"New Food"}/></div>
           <div class="grid-item">
         <ItemCard image={imageURL} text={"New Food"}/></div>
           <div class="grid-item">
-        <ItemCard image={imageURL} text={"New Food"}/></div>
+        <ItemCard image={imageURL} text={"New Food"}/></div> */}
           
         </div>
         </div>

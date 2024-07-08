@@ -8,6 +8,7 @@ import Chat from './components/js/Chat';
 import OrderState from "./context/orderState"
 import AdminHome from './components/js/AdminHome';
 import AddFoodItems from './components/js/AddFoodItems';
+import ConfirmOrderPage from './components/js/ConfirmOrderPage';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: '/addItem',
     element: <AddFoodItems/>
+  },
+  {
+    path: '/yourOrder',
+    element: <ConfirmOrderPage/>
   }
 ])
 

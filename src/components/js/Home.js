@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from './Navbar'
 import TodaysSpecial from './TodaysSpecial'
 import AllFood from './AllFood'
+import "../css/home.css"
 
 function Home() {
   return (

@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../css/adminlogin.css'
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function AdminLogin() {
   const navigate = useNavigate();
@@ -19,7 +20,11 @@ function AdminLogin() {
     const handleSubmit = async (event) => {
       event.preventDefault();
       console.log('Logging in with:', username, password);
-      await axios.post(`https://odeasebackend.vercel.app/adminLogin`,{
+      await axios.post(`https://odeasebackend.vercel.app/adminLogin`, {
+        headers:{
+          "Access-Control-Allow-Origin": "*"
+        }
+      }, {
         email: username,
         password: password
       }).then(function(response){
@@ -45,7 +50,7 @@ function AdminLogin() {
     return (
       <div className='adminLoginContainer'>
         <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Login</h2>
+        <h2>Administration Login</h2>
         <div className="input-group">
           <label htmlFor="username">Username:</label>
           <input
@@ -71,7 +76,8 @@ function AdminLogin() {
         <span onClick={handleForgotPassword}>Forgot Password?</span>
       </div>
       </form>
-      
+      <p className='adminLogin'>Click <Link to='/'>here</Link> for user login</p>
+    
       </div>
     );
   };

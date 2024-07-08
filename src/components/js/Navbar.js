@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from 'react'
 import "../css/navbar.css"
 import ordercontext from '../../context/orderContext'
+import { Link } from 'react-router-dom';
 
-function Navbar() {
-  
+function Navbar() {  
   // const context = useContext(chatContext)
   // const {currUser, getCurrUser} = context
   const context = useContext(ordercontext)
@@ -25,8 +25,7 @@ function Navbar() {
         </div>
 
         <div className='navBarRight'>
-            <input className='searchBarOfNavBar' type="text" placeholder='Search'/>
-            <p>Order</p>
+            <p><Link to='/yourOrder'>Order</Link></p>
             <p className='chatText'>Chat</p>
             <p className='adminText'>{users? users.userName: 'User'}</p>
         </div>
