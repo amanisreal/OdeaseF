@@ -4,8 +4,8 @@ import ordercontext from './orderContext'
 import { useState } from "react";
 
 const OrderState = (props) => {
-    //const url = "https://odeasebackend.vercel.app";
-    const url = `http://localhost:3001`
+    const url = "https://odeasebackend.vercel.app";
+    //const url = `http://localhost:3001`
     const [users, setCurrUser] = useState([]);
     const [allFood, setAllFood] = useState([]);
     const [currOrder, setCurrOrder] = useState([]);
