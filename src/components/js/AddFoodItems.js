@@ -31,7 +31,7 @@ function AddFoodItems() {
       const handleSubmit = async (e) => {
         e.preventDefault();
         // Handle form submission, e.g., send data to a server
-        console.log(formData);
+        //console.log(formData);
 
         await axios.post('https://odeasebackend.vercel.app/addFoodItem', {
             foodName: formData.title,
@@ -39,12 +39,12 @@ function AddFoodItems() {
             foodCategory: formData.category,
             foodPrice: Number(formData.price)
         }).then((response) => {
-            console.log(response);
+           // console.log(response);
             alert('Food added');
             navigate('/adminHome')
 
         }).catch((error) => {
-            console.log(error);
+          //console.log(error);
             alert('Something went wrong');
         })
 

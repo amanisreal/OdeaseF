@@ -4,23 +4,24 @@ import ordercontext from './orderContext'
 import { useState, useReducer } from "react";
 
 const cartReducer = (state, action) => {
+   console.log(state)    
     switch (action.type) {
-      case 'ADD_TO_CART':
-        return state.map(item => 
-          item.id === action.payload.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        ).concat(state.find(item => item.id === action.payload.id) ? [] : [{ ...action.payload, quantity: 1 }]);
-      case 'REMOVE_FROM_CART':
-        return state
-          .map(item =>
-            item.id === action.payload.id && item.quantity >= 1
-              ? { ...item, quantity: item.quantity - 1 }
+        case 'ADD_TO_CART':
+          return state.map(item => 
+            item._id === action.payload._id
+              ? { ...item, quantity: item.quantity + 1 }
               : item
-          )
-          .filter(item => item.id !== action.payload.id || item.quantity > 0);
-      default:
-        return state;
+        ).concat(state.find(item => item._id === action.payload._id) ? [] : [{ ...action.payload, quantity: 1 }]);
+        case 'REMOVE_FROM_CART':
+          return state
+            .map(item =>
+              item._id === action.payload._id && item.quantity >= 1
+                ? { ...item, quantity: item.quantity - 1 }
+                : item
+            )
+            .filter(item => item._id !== action.payload._id || item.quantity > 0);
+        default:
+          return state;
     }
   };
 

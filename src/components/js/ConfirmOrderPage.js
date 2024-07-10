@@ -16,12 +16,12 @@ function ConfirmOrderPage() {
     navigate('/finalPage');
   }
 
-console.log(cart)
+//console.log(cart)
   return (
     <div className='confirmOrderContainer'>
         
         {cart.map((item, i) => {
-            console.log(item)
+            //console.log(item)
             return<ConfirmOrderSchema key={i} food={item}/>
         })}
         <hr/>

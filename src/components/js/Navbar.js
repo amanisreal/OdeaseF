@@ -11,7 +11,7 @@ function Navbar() {
 
   useEffect(() => {
     gettCurrUser();
-    console.log(users)
+   // console.log(users)
   }, [])
 
   const [animate, setAnimate] = useState(false);

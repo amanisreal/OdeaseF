@@ -19,7 +19,7 @@ function AdminLogin() {
   
     const handleSubmit = async (event) => {
       event.preventDefault();
-      console.log('Logging in with:', username, password);
+      //console.log('Logging in with:', username, password);
       await axios.post(`https://odeasebackend.vercel.app/adminLogin`, {
         headers:{
           "Access-Control-Allow-Origin": "*"
@@ -28,15 +28,15 @@ function AdminLogin() {
         email: username,
         password: password
       }).then(function(response){
-        console.log(response);
+        //console.log(response);
         if(response.status === 200){
-                console.log(response.data)
+               // console.log(response.data)
               //localStorage.setItem('token', response.data.authToken);
               navigate('/adminHome')
         }
       })
       .catch(function(error){
-        console.log(error);
+        //console.log(error);
         alert('Invalid Table number')
       })
       // Here you can add logic to authenticate the user
@@ -44,7 +44,7 @@ function AdminLogin() {
 
     const handleForgotPassword = () => {
     // Logic to handle forgot password link, e.g., show a modal or navigate to a forgot password page
-    console.log('Forgot Password clicked');
+   // console.log('Forgot Password clicked');
   };
   
     return (

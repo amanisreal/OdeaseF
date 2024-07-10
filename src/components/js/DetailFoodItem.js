@@ -16,7 +16,7 @@ function DetailFoodItem(props) {
         a++;
         setCount(a);
         dispatch({ type: 'ADD_TO_CART', payload: props.item });
-        console.log(cart);
+        //console.log(cart);
       };
     
       const handleRemoveFromCart = () => {
