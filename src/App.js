@@ -9,8 +9,10 @@ import OrderState from "./context/orderState"
 import AdminHome from './components/js/AdminHome';
 import AddFoodItems from './components/js/AddFoodItems';
 import ConfirmOrderPage from './components/js/ConfirmOrderPage';
+import FinalPage from './components/js/FinalPage';
 
 const router = createBrowserRouter([
+  <Navbar/>,
   {
     path:'/',
     element: <Login/>
@@ -38,6 +40,10 @@ const router = createBrowserRouter([
   {
     path: '/yourOrder',
     element: <ConfirmOrderPage/>
+  },
+  {
+    path: '/finalPage',
+    element: <FinalPage/>
   }
 ])
 

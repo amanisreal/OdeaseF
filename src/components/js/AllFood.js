@@ -5,7 +5,8 @@ import DetailFoodItem from './DetailFoodItem'
 
 function AllFood() {
   const context = useContext(ordercontext)
-  const {getAllFoodItems, allFood} = context;
+  const {getAllFoodItems, allFood, cart} = context;
+ // const cartItem = cart.find(cartItem => cartItem.id === item.id);
 
   const [search, setSearch] = useState('');
 
@@ -31,7 +32,7 @@ function AllFood() {
         {allFood.filter((item) => {
           return search.toLowerCase() === ''? item : item.foodName.toLowerCase().includes(search.toLowerCase())
         }).map((item) => {
-          return <DetailFoodItem title={item.foodName} description={item.foodDescription} price={item.foodPrice} key={item._id} id={item._id}/>
+          return <DetailFoodItem item={item} title={item.foodName} description={item.foodDescription} price={item.foodPrice} key={item._id} id={item._id}/>
         })}
     </div>
   )

@@ -1,5 +1,14 @@
 .homeContainer{
     position: absolute;
+    display: flex;
+}
+
+.leftSide{
+    flex:0.7;
+}
+
+.rightSide{
+    flex: 0.3;
 }
 
 .navBarSection{

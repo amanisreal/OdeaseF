@@ -4,22 +4,27 @@ import ordercontext from '../../context/orderContext'
 
 function DetailFoodItem(props) {
     const context = useContext(ordercontext)
-    const {addToOrder, deleteFromOrder} = context;
+    const {cart, dispatch} = context;
+    const cartItem = (id) => {
+        cart.find(cartItem => cartItem.id === id);
+    }
+    
     const[count, setCount] = useState(0);
 
-    const minusClicked = () => {
-        let c = count;
-        c--;
-        setCount(c);
-        deleteFromOrder(props)
-    }
-
-    const plusClicked = () => {
-        let c = count;
-        c++;
-        setCount(c);
-        addToOrder(props)
-    }
+    const handleAddToCart = () => {
+        let a = count;
+        a++;
+        setCount(a);
+        dispatch({ type: 'ADD_TO_CART', payload: props.item });
+        console.log(cart);
+      };
+    
+      const handleRemoveFromCart = () => {
+        let a = count;
+        a--;
+        setCount(a);
+        dispatch({ type: 'REMOVE_FROM_CART', payload: props.item });
+      };
   return (
     <div className='detailFooditemContainer'>
         <div className='leftSide'>
@@ -35,9 +40,9 @@ function DetailFoodItem(props) {
             <div className='descriptionSection'>
                 {props.description}
                 <div className='addItem'>
-                <button className='commonButtonAdd' onClick={minusClicked}>-</button>
-                <p>{count}</p>
-                <button className='commonButtonAdd' onClick={plusClicked}>+</button>
+                <button disabled={!count} className='commonButtonAdd' onClick={handleRemoveFromCart}>-</button>
+                <p>{cartItem(props.id) && <p>Quantity in cart: {cartItem(props.id).quantity}</p>}</p>
+                <button className='commonButtonAdd' onClick={handleAddToCart}>+</button>
                 </div>
             </div>
         </div>

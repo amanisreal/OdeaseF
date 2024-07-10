@@ -1,7 +1,28 @@
 
 import axios from 'axios';
 import ordercontext from './orderContext'
-import { useState } from "react";
+import { useState, useReducer } from "react";
+
+const cartReducer = (state, action) => {
+    switch (action.type) {
+      case 'ADD_TO_CART':
+        return state.map(item => 
+          item.id === action.payload.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        ).concat(state.find(item => item.id === action.payload.id) ? [] : [{ ...action.payload, quantity: 1 }]);
+      case 'REMOVE_FROM_CART':
+        return state
+          .map(item =>
+            item.id === action.payload.id && item.quantity >= 1
+              ? { ...item, quantity: item.quantity - 1 }
+              : item
+          )
+          .filter(item => item.id !== action.payload.id || item.quantity > 0);
+      default:
+        return state;
+    }
+  };
 
 const OrderState = (props) => {
     const url = "https://odeasebackend.vercel.app";
@@ -9,7 +30,8 @@ const OrderState = (props) => {
     const [users, setCurrUser] = useState([]);
     const [allFood, setAllFood] = useState([]);
     const [currOrder, setCurrOrder] = useState([]);
-    
+    const [cart, dispatch] = useReducer(cartReducer, []);
+
     //get the curr user
     const gettCurrUser = async () => {
         await axios({
@@ -76,7 +98,7 @@ const OrderState = (props) => {
     }    
 
     return(
-        <ordercontext.Provider value={{currOrder, users, gettCurrUser, getAllFoodItems, allFood, addToOrder, deleteFromOrder}}>
+        <ordercontext.Provider value={{currOrder, users, gettCurrUser, getAllFoodItems, allFood, addToOrder, deleteFromOrder, cart, dispatch }}>
             {props.children}
         </ordercontext.Provider>
     )
